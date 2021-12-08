@@ -1,0 +1,57 @@
+.container {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeate(5, 15%);
+  grid-template-rows: repeate(3, 30%);
+  grid-template-areas:
+  'A B C D E'
+  'F F F G H'
+  'F F F I J';
+  gap: 2vh;
+
+}
+
+div:not(.container) {
+  box-shadow: 0 6px 6px rgba(0,0,0,0.2);
+  background-color: #111111;
+}
+
+.a {
+  grid-area: A;
+}
+.b {
+  grid-area: B;
+}
+
+.c {
+  grid-area: C;
+}
+
+.d {
+  grid-area: D;
+}
+
+.e {
+  grid-area: E;
+}
+
+.f {
+  grid-area: F;
+}
+
+.g {
+  grid-area: G;
+}
+
+.h {
+  grid-area: H;
+}
+
+.i {
+  grid-area: I;
+}
+
+.j {
+  grid-area: J;
+}
