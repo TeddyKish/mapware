@@ -4,12 +4,11 @@ from typing import (
     List
 )
 
-
 class Host:
     """
     Run shit on a single host
     """
-    def __init__(self, host: str, ports: List[int], os_type: str):
+    def __init__(self, host: str=None, ports: List[int]=None, os_type: str=None):
         """
         :param host: IP
         :param ports: What ports are open

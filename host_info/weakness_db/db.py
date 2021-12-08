@@ -3,7 +3,7 @@ from collections import defaultdict
 
 
 class OS_TYPE(Enum):
-    NONE    = "none"
+    NONE    = None
     WINDOWS = "windows"
     LINUX   = "linux"
 
