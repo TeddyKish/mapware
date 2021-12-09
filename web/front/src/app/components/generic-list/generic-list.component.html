@@ -1,11 +1,11 @@
 <div class="container">
-  <div *ngFor="let item of data" class="listItem" (click)="click(item)" [ngClass]="{selected: isSelected(item)}">
+  <div *ngFor="let item of data.hosts" class="listItem" (click)="click(item)" [ngClass]="{selected: isSelected(item)}">
     <div>
       <div class="host">
       <i class="fa fa-server"></i>
-      {{item.name}}</div>
-      <div class="ip">IP: {{item.ip}}</div>
+      {{item.ip}}</div>
+      <div class="ip">{{item.type}}</div>
     </div>
-    <app-sub-item *ngFor="let sub of item.services" [data]="sub"></app-sub-item>
+    <app-sub-item *ngFor="let sub of item.open_services" [data]="sub"></app-sub-item>
   </div>
 </div>

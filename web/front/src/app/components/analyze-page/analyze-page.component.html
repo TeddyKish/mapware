@@ -1,5 +1,11 @@
 <div class="container">
   <span>Network Analyzer</span>
+  <select style="width: 200px; margin-left: 20px;">
+    <option>Roy savransky</option>
+    <option>Lidor</option>
+    <option>שרית חדד</option>
+    <option>redmi</option>
+  </select>
 <!--  <div>-->
 <!--    <mat-form-field appearance="fill">-->
 <!--      <mat-label>Toppings</mat-label>-->
@@ -8,7 +14,7 @@
 <!--      </mat-select>-->
 <!--    </mat-form-field>-->
 <!--  </div>-->
-  <div>
-    <app-generic-list [data]="data"></app-generic-list>
+  <div class="list">
+    <app-generic-list [data]="getNetworkInfo('rotem')"></app-generic-list>
   </div>
 </div>

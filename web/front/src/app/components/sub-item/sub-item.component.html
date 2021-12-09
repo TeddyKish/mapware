@@ -1,20 +1,24 @@
 <div class="container">
-
-  <div>
-    <i class="fa fa-cogs"></i>
-    {{data.name}}
+  <div claas="info">
+    <div>
+      <i class="fa fa-cogs"></i>
+      {{data.name}}
+    </div>
+    <div>
+      <i class="fa fa-wifi"></i>
+      {{data.port}}
+    </div>
+    <div>
+      <i class="fa fa-exchange"></i>
+      {{data.protocol}}
+    </div>
+    <div *ngIf="data.state">
+      <i class="fa fa-lock"></i>
+      {{data.state}}
+    </div>
   </div>
-  <div>
-    <i class="fa fa-wifi"></i>
-    {{data.port}}
-  </div>
-  <div>
-    <i class="fa fa-exchange"></i>
-    {{data.protocol}}
-  </div>
-  <div *ngIf="data.state">
-    <i class="fa fa-lock"></i>
-    {{data.state}}
+  <div *ngIf="data.vulnerabilities">
+    <div class="von" *ngFor="let vol of data.vulnerabilities">{{vol.name}}: {{vol.description}}</div>
   </div>
 
 </div>

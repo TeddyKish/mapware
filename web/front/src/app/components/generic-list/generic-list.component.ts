@@ -1,7 +1,9 @@
 import { Component, OnInit, Input, Renderer2 } from '@angular/core';
 
-export type serviceInfo = {port:number, protocol: string, name: string, state?: string};
-export type hostInfo = {name: string, ip: string, services: serviceInfo[]};
+export type von = {name: string, description: string};
+export type serviceInfo = {name: string, protocol: string, port:number, state?: string, vulnerabilities?: von[]};
+export type hostInfo = {ip: string, type: string, open_services: serviceInfo[]};
+export type networks = {network_id: string, hosts: hostInfo[]}
 
 @Component({
   selector: 'app-generic-list',
@@ -9,7 +11,7 @@ export type hostInfo = {name: string, ip: string, services: serviceInfo[]};
   styleUrls: ['./generic-list.component.scss']
 })
 export class GenericListComponent implements OnInit {
-  @Input() data: hostInfo[] = [];
+  @Input() data: networks= {network_id:"", hosts:[]};
   selected = undefined;
 
   constructor(private render:Renderer2 ) { }

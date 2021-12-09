@@ -17,13 +17,13 @@ export class DashboardComponent implements OnInit {
   ]
 
   developers = [
-    {name: "Roy", lastname: "Pe`er", part: "hardware", photo: "./../../assets/royp.jpg"},
-    {name: "Tomer", lastname: "Dragucki", part: "hardware", photo: "./../../assets/tomer.jpg"},
-    {name: "Roy", lastname: "savransky", part: "website", photo: "./../../assets/roys.jpg"},
-    {name: "Itay", lastname: "Na`aman", part: "analise", photo: "./../../assets/itay.jpg"},
-    {name: "Nimrod", lastname: "Keidar", part: "analise", photo: "./../../assets/nimrod.jpg"},
-    {name: "Teddy", lastname: "Kishnevsky", part: "analise", photo: "./../../assets/teddy.jpg"},
-    {name: "Rotem", lastname: "Oz", part: "analise", photo: "./../../assets/rotem.jpg"},
+    {name: "Roy", lastname: "Pe`er", part: "Hardware", photo: "./../../assets/royp.jpg"},
+    {name: "Tomer", lastname: "Dragucki", part: "Hardware", photo: "./../../assets/tomer.jpg"},
+    {name: "Roy", lastname: "Savransky", part: "Website", photo: "./../../assets/roys.jpg"},
+    {name: "Itay", lastname: "Na`aman", part: "Analysis", photo: "./../../assets/itay.jpg"},
+    {name: "Nimrod", lastname: "Keidar", part: "Analysis", photo: "./../../assets/nimrod.jpg"},
+    {name: "Teddy", lastname: "Kishnevsky", part: "Analysis", photo: "./../../assets/teddy.jpg"},
+    {name: "Rotem", lastname: "Oz", part: "Analysis", photo: "./../../assets/rotem.jpg"},
   ]
   constructor() { }
 

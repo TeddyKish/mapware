@@ -21,6 +21,12 @@ export class MainPageComponent implements OnInit {
                                 routerLink: ['/analyze'],
                                 position: SimpleSidebarPosition.top
                             },
+                            {
+                                name: 'spread',
+                                icon: 'fa fa-globe',
+                                routerLink: ['/spread'],
+                                position: SimpleSidebarPosition.top
+                            },
 
                         ];
 

@@ -4,10 +4,23 @@
   margin-left: 13px;
   font-size: 15px;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   padding-left: 20px;
 
   div {
-    width: 20%;
+    width: 100%;
+    display: flex;
   }
+
+  .info {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+  }
+}
+
+
+.von {
+  font-size: 0.8em;
+  margin-left: 17px;
 }

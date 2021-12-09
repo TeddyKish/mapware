@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request
+from flask_cors import CORS
 from os import path
 import json
 import atexit
@@ -20,36 +21,41 @@ class Store:
             with open(self.db_path, mode) as fo:
                 fo.write(json.dumps(self.networks))
 
+    def get_networks(self):
+        net = list(self.networks.values())
+        print(net)
+        return net
 def analyze_network(network_id, network):
     data = {}
     for host in network['hosts']:
-        data[host['ip']] = list(map(lambda service: service['port'], host['open-services']))
+        data[host['ip']] = list(map(lambda service: service['port'], host['open_services']))
     print(data)
 
 
 
 app = Flask(__name__)
+CORS(app)
 store = Store()
 
 @app.route('/db', methods=['GET'])
 def db():
-    return json.dumps(store.networks)
+    return json.dumps(store.get_networks())
 
 @app.route('/cluster')
 def get_network_cluster():
     pass
 
-
-@app.route('/', methods=['GET'])
-def index():
-    return render_template('index.html')
+#
+# @app.route('/', methods=['GET'])
+# def index():
+#     return render_template('index.html')
 
 @app.route('/set_network', methods=['POST'])
 def set_network():
     network = request.get_json()
     network_id = network['network_id']
 
-    del network['network_id']
+#     del store.networks[network_id]
     store.networks[network_id] = network
 
     analyze_network(network_id, network)
