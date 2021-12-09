@@ -39,9 +39,15 @@ store = Store()
 def db():
     return json.dumps(store.networks)
 
-@app.route('/get_anayze')
+@app.route('/photo')
 def get_network_cluster():
-    pass
+    network_id = request.args.get('network_id')
+    return network_id
+
+@app.route('/networks')
+def networks():
+    print(store.networks.keys())
+    return json.dumps(list(store.networks.keys()))
 
 
 @app.route('/', methods=['GET'])
