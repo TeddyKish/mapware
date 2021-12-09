@@ -63,17 +63,21 @@ class Host:
             return None
 
     def run_check(self) -> dict:
-        worked = []
+        open_services = []
 
         for port, proto, status, service in self._ports:
-            for callable in DB[(service, self._os_type)]:
-                if callable(self._host):
-                    worked.append(callable.__doc__.strip())
+            open_services.updata({
+                "name": str(service),
+                "proto": str(proto),
+                "state": str(status),
 
-        return worked
+                "vulnerabilities" : [
+                    {"name": callable.name, "description": callable.description}
+                    for callable in DB[(service, self._os_type)] if callable(self._host)
+                ]
+            })
 
-    def __str__(self):
-        return f'{str(self._host)} {self._ports} {self._os_type}'
+        return open_services
 
     def get_host_info(self):
-        ...
+        return {"ip": str(self._host), "os": self._os_type.value, "open_services": self.run_check()}
