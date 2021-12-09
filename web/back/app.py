@@ -2,7 +2,7 @@ from flask import Flask, render_template, request
 from os import path
 import json
 import atexit
-
+import base64
 import ml
 
 
@@ -31,6 +31,10 @@ def analyze_network(network_id, network):
     ml.cluster(network_id, data)
 
 
+def path_to_base64(png_path):
+    with open(png_path, "rb") as image_file:
+        return base64.b64encode(image_file.read())
+
 
 app = Flask(__name__)
 store = Store()
@@ -42,7 +46,12 @@ def db():
 @app.route('/photo')
 def get_network_cluster():
     network_id = request.args.get('network_id')
-    return network_id
+    png_path = network_id + '.png'
+
+    if path.isfile(png_path):
+        return path_to_base64(png_path)
+    else:
+        return ""
 
 @app.route('/networks')
 def networks():
