@@ -20,12 +20,25 @@ class Store:
             with open(self.db_path, mode) as fo:
                 fo.write(json.dumps(self.networks))
 
+def analyze_network(network_id, network):
+    data = {}
+    for host in network['hosts']:
+        data[host['ip']] = list(map(lambda service: service['port'], host['open-services']))
+    print(data)
+
+
+
 app = Flask(__name__)
 store = Store()
 
 @app.route('/db', methods=['GET'])
 def db():
     return json.dumps(store.networks)
+
+@app.route('/cluster')
+def get_network_cluster():
+    pass
+
 
 @app.route('/', methods=['GET'])
 def index():
@@ -34,7 +47,13 @@ def index():
 @app.route('/set_network', methods=['POST'])
 def set_network():
     network = request.get_json()
-    store.networks[network['network_id']] = network
+    network_id = network['network_id']
+
+    del network['network_id']
+    store.networks[network_id] = network
+
+    analyze_network(network_id, network)
+
     return "OK"
 
 
