@@ -3,6 +3,7 @@ from os import path
 import json
 import atexit
 
+
 class Store:
     networks = {}
     def __init__(self, db_path='db.db'):
@@ -23,7 +24,7 @@ class Store:
 def analyze_network(network_id, network):
     data = {}
     for host in network['hosts']:
-        data[host['ip']] = list(map(lambda service: service['port'], host['open-services']))
+        data[host['ip']] = list(map(lambda service: service['port'], host['open_services']))
     print(data)
 
 
@@ -35,7 +36,7 @@ store = Store()
 def db():
     return json.dumps(store.networks)
 
-@app.route('/cluster')
+@app.route('/get_anayze')
 def get_network_cluster():
     pass
 
@@ -49,9 +50,7 @@ def set_network():
     network = request.get_json()
     network_id = network['network_id']
 
-    del network['network_id']
     store.networks[network_id] = network
-
     analyze_network(network_id, network)
 
     return "OK"
