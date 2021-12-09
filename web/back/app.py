@@ -3,6 +3,8 @@ from os import path
 import json
 import atexit
 
+import ml
+
 
 class Store:
     networks = {}
@@ -25,7 +27,8 @@ def analyze_network(network_id, network):
     data = {}
     for host in network['hosts']:
         data[host['ip']] = list(map(lambda service: service['port'], host['open_services']))
-    print(data)
+    
+    ml.cluster(network_id, data)
 
 
 
