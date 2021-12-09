@@ -1,0 +1,35 @@
+.container {
+  width: 100%;
+  border: 1px solid #e3e3e3;
+  height: 100%;
+  margin: 2px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  box-shadow: 0 6px 6px rgba(0,0,0,0.2);
+
+
+  .photo {
+    display: flex;
+    justify-content: center;
+  }
+
+  img {
+    border-radius: 50%;
+    height: 15vh;
+    width: 15vh;
+  }
+
+  .name {
+    font-size: 1.2em;
+    word-break: break-word;
+    text-align: center;
+    margin-bottom: 5%;
+  }
+
+  .part {
+    text-align: center;
+  }
+
+}

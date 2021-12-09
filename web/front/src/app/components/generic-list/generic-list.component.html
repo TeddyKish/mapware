@@ -4,7 +4,7 @@
       <div class="host">
       <i class="fa fa-server"></i>
       {{item.name}}</div>
-      <div class="ip">{{item.ip}}</div>
+      <div class="ip">IP: {{item.ip}}</div>
     </div>
     <app-sub-item *ngFor="let sub of item.services" [data]="sub"></app-sub-item>
   </div>

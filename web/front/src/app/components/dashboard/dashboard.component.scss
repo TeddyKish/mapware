@@ -1,57 +1,54 @@
 .container {
   height: 100%;
-  width: 100%;
+  width: 90%;
   display: grid;
-  grid-template-columns: repeate(5, 15%);
+  grid-template-columns: repeate(3, 1fr);
   grid-template-rows: repeate(3, 30%);
   grid-template-areas:
-  'A B C D E'
-  'F F F G H'
-  'F F F I J';
+  'H H H'
+  'F F F'
+  'F F F';
   gap: 2vh;
+  margin: 3% 5% 0 5%;
 
 }
 
-div:not(.container) {
-  box-shadow: 0 6px 6px rgba(0,0,0,0.2);
-  background-color: #111111;
-}
-
-.a {
-  grid-area: A;
-}
-.b {
-  grid-area: B;
-}
-
-.c {
-  grid-area: C;
-}
-
-.d {
-  grid-area: D;
-}
-
-.e {
-  grid-area: E;
+.details {
+  height: 100%;
 }
 
 .f {
   grid-area: F;
-}
-
-.g {
-  grid-area: G;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
 }
 
 .h {
   grid-area: H;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  background-image:
+      linear-gradient(to bottom right, #001fb7, #615fb7);
+  border-radius: 8px;
+
+  div {
+    color: white;
+    height: 70%;
+    background-color: transparent
+  }
+
+  div:not(:last-child) {
+    padding-right: 10%;
+    border-right: 1px solid white;
+  }
 }
 
-.i {
-  grid-area: I;
-}
-
-.j {
-  grid-area: J;
+.developer {
+  min-height: 10%;
+  min-width: 8%;
+  width: 13%;
+  max-width: 13%;
 }

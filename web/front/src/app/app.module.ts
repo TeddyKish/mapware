@@ -16,7 +16,10 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { SubItemComponent } from './components/sub-item/sub-item.component';
 import {MatSelectModule} from '@angular/material/select';
+import { DetailsComponent } from './components/details/details.component';
 // import { NgxEchartsModule } from 'ngx-echarts';
+import { NgChartsModule } from 'ng2-charts';
+import { DevelopersListComponent } from './components/developers-list/developers-list.component';
 
 
 @NgModule({
@@ -30,7 +33,9 @@ import {MatSelectModule} from '@angular/material/select';
     AboutPageComponent,
     VonsComponent,
     DashboardComponent,
-    SubItemComponent
+    SubItemComponent,
+    DetailsComponent,
+    DevelopersListComponent
       ],
   imports: [
     BrowserModule,
@@ -39,6 +44,7 @@ import {MatSelectModule} from '@angular/material/select';
 //     NgxChartsModule,
 MatAutocompleteModule,
 MatSelectModule,
+NgChartsModule,
 // NgxEchartsModule.forRoot({
 //       echarts: () => import('echarts')
 //     }),
